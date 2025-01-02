@@ -111,7 +111,7 @@ const LoginPage = () => {
                       PHONE NUMBER
                     </label>
                     <div className="flex items-center gap-x-0 mob-s:gap-x-4 font-normal text-xs min-[270px]:text-sm mob-s:text-md mob-m:text-xl text-[--Shade-400] ">
-                      <p className="cursor-default">+91</p>
+                      <p className="cursor-default">+62</p>
                       <div>
                         <RxDividerVertical size={28} />
                       </div>
@@ -122,7 +122,7 @@ const LoginPage = () => {
                         placeholder="Enter Phone Number"
                         // size={20}
                         // minlength="9"
-                        maxLength={10}
+                        maxLength={12}
                         onChange={changeHandler}
                         value={userData.telNumber}
                         className="outline-none"

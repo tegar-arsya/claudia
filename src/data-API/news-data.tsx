@@ -129,3 +129,4 @@ export const newsData: NewsPostsData[] = [
         source: `https://youtu.be/JfVOs4VSpmA?si=hL_mIRVXn6dhg4kd`,
     },
 ]
+

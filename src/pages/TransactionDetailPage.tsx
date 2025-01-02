@@ -39,9 +39,9 @@ const TransactionDetailPage = () => {
 
   const downloadPDF = () => {
     const doc = new jsPDF();
-
-    // Background color
-    doc.setFillColor(255, 255, 204); // Light Yellow
+  
+    // Set Background Color
+    doc.setFillColor(240, 240, 240); // Light Gray
     doc.rect(
       0,
       0,
@@ -49,54 +49,73 @@ const TransactionDetailPage = () => {
       doc.internal.pageSize.getHeight(),
       "F"
     );
-
-    // Heading
+  
+    // Add Heading
+    doc.setFont("helvetica", "bold");
     doc.setFontSize(25);
-    doc.setTextColor(0, 0, 0);
-    doc.text("Transaction Details", 10, 20);
-
+    doc.setTextColor(40, 40, 40);
+    doc.text("Transaction Details", doc.internal.pageSize.getWidth() / 2, 20, {
+      align: "center",
+    });
+  
+    // Draw Separator Line
+    doc.setLineWidth(0.5);
+    doc.setDrawColor(200, 200, 200);
+    doc.line(10, 25, 200, 25);
+  
     // Movie Name
-    doc.setFontSize(20);
-    doc.setFont("bold");
+    doc.setFontSize(18);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(50, 50, 50);
     doc.text(`Movie: ${data?.movie.name}`, 10, 40);
-
-    // Theater and Location
-    doc.setFontSize(16);
-    doc.setFont("normal");
+  
+    // Theater and Location Details
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(80, 80, 80);
     doc.text(`Location: ${data?.theater.theaterName}`, 10, 55);
     doc.text(`Class: ${data?.theater.dimensionCategory}`, 10, 65);
     doc.text(`Badge: ${data?.theater.badge}`, 10, 75);
-
+  
     // Date and Time
     doc.text(`Date: ${formatDate(data?.date as unknown as Date)}`, 10, 85);
     doc.text(`Time: ${data?.time ?? ""}`, 10, 95);
-
+  
     // Token and Seats
     doc.text(`Token: ${data?.token}`, 10, 105);
     doc.text(`Seats: ${data?.seat?.join(", ")}`, 10, 115);
-
-    // Line separator
+  
+    // Add Subheading for Purchase Details
+    doc.setFontSize(18);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(50, 50, 50);
+    doc.text("Purchase Details", 10, 130);
+  
+    // Draw Box for Purchase Details
     doc.setLineWidth(0.5);
-    doc.line(10, 125, 200, 125);
-
-    // Purchase Details
-    doc.setFontSize(20);
-    doc.setFont("bold");
-    doc.text("Purchase Details:", 10, 135);
-    doc.setFontSize(16);
-    doc.setFont("normal");
-    doc.text(`Total Amount: ${data?.totalPrice}`, 10, 150);
-    doc.text(`Discount: ${data?.discount}`, 10, 160);
-    doc.text(`Final Amount: ${data?.finalAmount}`, 10, 170);
-
+    doc.setDrawColor(100, 100, 100);
+    doc.rect(10, 135, 190, 50);
+  
+    // Purchase Details Content
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(80, 80, 80);
+    doc.text(`Total Amount: ${data?.totalPrice}`, 15, 145);
+    doc.text(`Discount: ${data?.discount}`, 15, 155);
+    doc.text(`Final Amount: ${data?.finalAmount}`, 15, 165);
+  
     // Footer
     doc.setFontSize(12);
-    doc.setTextColor(100);
-    doc.text("Thank you for your purchase!", 10, 190);
-
+    doc.setFont("helvetica", "italic");
+    doc.setTextColor(120, 120, 120);
+    doc.text("Thank you for your purchase!", doc.internal.pageSize.getWidth() / 2, 190, {
+      align: "center",
+    });
+  
     // Save the PDF
     doc.save("transaction_details.pdf");
   };
+  
 
   return (
     <div>
@@ -199,7 +218,7 @@ const TransactionDetailPage = () => {
             </div>
 
             <div>
-              <p className="my-2">{`\b\b ${data?.totalPrice}`}</p>
+              <p className="my-2">{`IDR. ${data?.totalPrice}`}</p>
               <div className="flex items-center justify-end">
                 <p>-</p>
                 <p>{data?.discount}</p>
@@ -211,7 +230,7 @@ const TransactionDetailPage = () => {
 
           <div className="flex justify-between">
             <div>Final Amount</div>
-            <div>{data?.finalAmount}</div>
+            <div>IDR.{data?.finalAmount}</div>
           </div>
         </div>
       </div>

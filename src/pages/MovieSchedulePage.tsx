@@ -17,7 +17,7 @@ import {
 } from "../redux/Slices/MovieBookingSlice";
 import Footer from "../components/Footer";
 import { FcSearch, FcFilmReel } from "react-icons/fc";
-import { FaIndianRupeeSign } from "react-icons/fa6";
+import { FaRupiahSign } from "react-icons/fa6";
 import toast from "react-hot-toast";
 
 const MovieSchedulePage = () => {
@@ -44,10 +44,11 @@ const MovieSchedulePage = () => {
       year: "numeric",
     };
     const date = new Date(dateString);
-    const formattedDate = date.toLocaleDateString("en-US", options);
-
+    const formattedDate = date.toLocaleDateString("id-ID", options);
+  
     return formattedDate;
   };
+  
 
   const { theaterData } = useSelector(
     (state: { theater: { theaterData: TheaterData[]; loading: boolean } }) =>
@@ -241,9 +242,8 @@ const MovieSchedulePage = () => {
                   onChange={handleDropdownChange}
                 >
                   <option value="all">CITY</option>
-                  <option value="surat">Surat</option>
-                  <option value="mumbai">Mumbai</option>
-                  <option value="ahmedabad">Ahmedabad</option>
+                  <option value="yogyakarta">YOGYAKARTA</option>
+                  <option value="semarang">SEMARANG</option>
                 </select>
               </div>
             </div>
@@ -342,7 +342,7 @@ const MovieSchedulePage = () => {
                         </div>
                         <div className="flex items-center">
                           <div>
-                            <FaIndianRupeeSign size={14} />
+                            <FaRupiahSign size={14} />
                           </div>
                           <div>{dimension.price}</div>
                         </div>

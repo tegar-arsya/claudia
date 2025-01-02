@@ -42,7 +42,7 @@ const SignupPage = () => {
 
   const validatePhoneNumber = (phoneNumber: string): boolean => {
     // Simple phone number format validation
-    return phoneNumber.length === 10 && !isNaN(Number(phoneNumber));
+    return phoneNumber.length === 12 && !isNaN(Number(phoneNumber));
   };
 
   const submitHandler1 = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -142,7 +142,7 @@ const SignupPage = () => {
                       PHONE NUMBER
                     </label>
                     <div className="flex items-center gap-x-0 mob-s:gap-x-4 font-normal text-xs min-[270px]:text-sm mob-s:text-md mob-m:text-xl text-[--Shade-400] ">
-                      <p className="cursor-default">+91</p>
+                      <p className="cursor-default">+62</p>
                       <div>
                         <RxDividerVertical size={28} />
                       </div>
@@ -153,7 +153,7 @@ const SignupPage = () => {
                         placeholder="Enter Phone Number"
                         // size={20}
                         // minlength="9"
-                        maxLength={10}
+                        maxLength={15}
                         onChange={changeHandler}
                         value={userData.telNumber}
                         className="outline-none"

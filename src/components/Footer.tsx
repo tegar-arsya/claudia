@@ -6,100 +6,71 @@ import AppStore from "../assets/logo/App Store.svg";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col justify-between items-start mt-[7rem] mb-[5rem]">
-      <hr className="h-1 w-full bg-[--Shade-300] mb-[3rem]" />
-      <div className="w-11/12 flex flex-col gap-10 mx-auto md:flex-row justify-between items-start md:items-start">
+    <footer className="flex flex-col justify-between items-center py-10 bg-gray-50 border-t border-gray-200">
+      <div className="w-11/12 flex flex-col gap-10 mx-auto md:flex-row justify-between items-start">
+        {/* Logo Section */}
         <div>
           <img
             src={logo}
-            alt="photu"
-            className="block mob-s:hidden md:block w-40 lg:w-50 h-16 lg:h-20"
+            alt="TIX ID Logo"
+            className="block w-40 lg:w-50 h-auto"
           />
         </div>
 
-        <div className="flex flex-col mob-s:flex-row gap-10 lg:gap-24 lg:mr-6">
-          <div className="flex flex-col gap-2 mob-s:gap-6">
-            <p className="text-lg font-bold mob-s:font-medium text-[--Shade-900]">
-              Company
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">
-              Contact Us
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">About</p>
-            <p className="text-base font-normal text-[--Shade-900]">Partner</p>
+        {/* Links Section */}
+        <div className="flex flex-col mob-s:flex-row gap-10 lg:gap-20">
+          <div className="flex flex-col gap-4">
+            <p className="text-lg font-semibold text-gray-800">Company</p>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Contact Us</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">About</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Partner</a>
           </div>
-          <div className="flex flex-col gap-2 mob-s:gap-6">
-            <p className="text-lg font-bold mob-s:font-medium text-[--Shade-900]">
-              About
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">
-              TIX ID News
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">Cinema</p>
-            <p className="text-base font-normal text-[--Shade-900]">
-              My Ticket
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">Payment</p>
-            <p className="text-base font-normal text-[--Shade-900]">
-              Installment
-            </p>
+          <div className="flex flex-col gap-4">
+            <p className="text-lg font-semibold text-gray-800">About</p>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">TIX ID News</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Cinema</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">My Ticket</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Payment</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Installment</a>
           </div>
-          <div className="flex flex-col gap-2 mob-s:gap-6">
-            <p className="text-lg font-bold mob-s:font-medium text-[--Shade-900]">
-              Support
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">
-              Help Center
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">
-              Privacy Policy
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">FAQ</p>
-            <p className="text-base font-normal text-[--Shade-900]">
-              Terms and Conditions
-            </p>
-            <p className="text-base font-normal text-[--Shade-900]">
-              Update Covid-19
-            </p>
+          <div className="flex flex-col gap-4">
+            <p className="text-lg font-semibold text-gray-800">Support</p>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Help Center</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Privacy Policy</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">FAQ</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Terms and Conditions</a>
+            <a href="#" className="text-base text-gray-600 hover:text-gray-900">Update Covid-19</a>
           </div>
         </div>
 
-        <div className="flex flex-col gap-10">
+        {/* Social Media and App Download Section */}
+        <div className="flex flex-col gap-8">
+          {/* Social Media */}
           <div className="flex flex-col gap-3">
-            <div className="text-lg font-medium text-[--Shade-900]">
-              Follow Social Media
-            </div>
+            <p className="text-lg font-semibold text-gray-800">Follow Us</p>
             <div className="flex gap-5">
-              <div>
-                <FaInstagram size={25} />
-              </div>
-              <div>
-                <FaTwitter size={25} />
-              </div>
-              <div>
-                <FaFacebookSquare size={25} />
-              </div>
+              <FaInstagram size={25} className="text-gray-600 hover:text-gray-900" />
+              <FaTwitter size={25} className="text-gray-600 hover:text-gray-900" />
+              <FaFacebookSquare size={25} className="text-gray-600 hover:text-gray-900" />
             </div>
           </div>
+
+          {/* App Download */}
           <div className="flex flex-col gap-3">
-            <div className="text-lg font-medium text-[--Shade-900]">
-              Download the TIX ID Application
-            </div>
+            <p className="text-lg font-semibold text-gray-800">Download the App</p>
             <div className="flex flex-col mob-s:flex-row gap-5">
-              <div>
-                <img src={GooglePlay} />
-              </div>
-              <div>
-                <img src={AppStore} />
-              </div>
+              <img src={GooglePlay} alt="Google Play" className="w-36" />
+              <img src={AppStore} alt="App Store" className="w-36" />
             </div>
-          </div>
-          <div className="text-xs font-normal text-[--Shade-900]">
-            2021 TIX ID - PT Nusantara Elang Sejahtera.
           </div>
         </div>
+        
       </div>
-    </div>
+      {/* Copyright */}
+      <p className="text-3xl font-bold text-center mt-4">
+            &copy; 2025 Tegar Arsyadani.
+          </p>
+    </footer>
   );
 };
 

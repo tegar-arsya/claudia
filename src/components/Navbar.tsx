@@ -1,176 +1,126 @@
-// import React from 'react'
-import logo from "../assets/logo/TIX ID.svg";
-import { RxDividerVertical } from "react-icons/rx";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { FcMenu } from "react-icons/fc";
-import { IoCloseCircleOutline } from "react-icons/io5";
-import { useState } from "react";
 import { RootState } from "../redux/store";
+import { Menu, X, Bell, User } from "lucide-react";
+import logo from "../assets/logo/TIX ID.svg";
 
 const Navbar = () => {
-  const { userData } = useSelector(
-    (state: RootState) => state.login
-  );
-  const login = useSelector((state: any) => state.login);
-  // const dispatch = useDispatch();
+  const { userData, isLoggedIn } = useSelector((state: RootState) => state.login);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  // if(isMenuOpen){
-  //   pointer
-  // }
-
   return (
-    <div className="fixed top-0 w-full mx-auto  flex bg-white drop-shadow-xl h-10 mob-s:h-12 mob-m:h-16 mob-l:h-20 border z-50">
-      {/* LARG DISPLAY  */}
-      <div className="w-11/12 mx-auto flex justify-between items-center">
-        <div>
-          <Link to={"/"}>
-            <img src={logo} width={64} height={64} />
-          </Link>
-        </div>
-
-        {/* LARG DISPLAY  */}
-        <div>
-          <div className="hidden md:block">
-            <nav>
-              <ul className="flex mx-auto  gap-x-5 lg:gap-x-10 items-center  font-semibold ">
-                <li>
-                  <Link to={"/"}>
-                    <div className="hover:text-[--Shade-900]">Home</div>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/my-ticket"}>
-                    <div className="hover:text-[--Shade-900]">My Tickets</div>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/news"}>
-                    <div className="hover:text-[--Shade-900]">TIX ID News</div>
-                  </Link>
-                </li>
-                <li>
-                  <RxDividerVertical width={2} height={240} size={25} />
-                </li>
-                <li>
-                  <IoMdNotificationsOutline size={25} />
-                </li>
-                {!login.isLoggedIn && (
-                  <li className="text-[18px] font-medium leading-4 ">
-                    <Link to={"/signup"}>
-                      <p className="text-black hover:text-black">Sign Up</p>
-                    </Link>
-                  </li>
-                )}
-                {!login.isLoggedIn && (
-                  <li className="w-[101px] h-[48px] rounded-md py-[12px] text-center bg-[--Royal-Blue] ">
-                    <Link to={"/login"}>
-                      <p className="text-[--Pastel-Yellow] ">Login</p>
-                    </Link>
-                  </li>
-                )}
-                {login.isLoggedIn && (
-                  <li className="w-[101px] h-[48px] rounded-md py-[12px] text-center bg-[--Royal-Blue] ">
-                    <Link to={"/account"}>
-                      <div className="text-[--Pastel-Yellow] ">
-                        {/* {login.userData.name.charAt(0)} */}
-                        {userData.name}
-                        
-                      </div>
-                    </Link>
-                  </li>
-                )}
-              </ul>
-            </nav>
+    <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 md:h-20">
+          <div className="flex items-center">
+            <Link to="/" className="flex-shrink-0">
+              <img src={logo} alt="TIX ID" className="h-8 w-auto md:h-10" />
+            </Link>
           </div>
-        </div>
 
-        {/* MOBILE MD DISPLAY  */}
-        <div className="md:hidden">
-          <div className="">
-            <button className="md:hidden" onClick={toggleMenu}>
-              {!isMenuOpen ? (
-                <div className="">
-                  <FcMenu size={25} />
-                </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/my-ticket" className="nav-link">My Tickets</Link>
+            <Link to="/news" className="nav-link">TIX ID News</Link>
+            <button className="p-2 rounded-full hover:bg-gray-100">
+              <Bell className="h-5 w-5 text-gray-600" />
+            </button>
+            
+            {!isLoggedIn ? (
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/signup"
+                  className="text-gray-900 hover:text-gray-600 font-medium"
+                >
+                  Sign Up
+                </Link>
+                <Link
+                  to="/login"
+                  className="bg-royal-blue text-sunshine-yellow px-6 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors"
+                >
+                  Login
+                </Link>
+              </div>
+            ) : (
+              <Link
+                to="/account"
+                className="flex items-center space-x-2 bg-royal-blue text-sunshine-yellow px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
+              >
+                <User className="h-5 w-5" />
+                <span>{userData.name}</span>
+              </Link>
+            )}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
               ) : (
-                <div className="h-[100vh] absolute top-0 left-0 w-screen bg-white overflow-scroll">
-                  <div className="w-11/12 mx-auto m-2">
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <Link to={"/"}>
-                          <img src={logo} width={64} height={64} className="" />
-                        </Link>
-                      </div>
-                      <div className="">
-                        <IoCloseCircleOutline
-                          size={35}
-                          onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        />
-                      </div>
-                    </div>
-                    <div className="m-5 flex flex-col items-start gap-10 ">
-                      <Link to={"/"}>
-                        <div className="font-medium text-2xl cursor-pointer">
-                          Home
-                        </div>
-                      </Link>
-                      <Link to={"/my-ticket"}>
-                        <div className="font-medium text-2xl">My Tickets</div>
-                      </Link>
-                      <Link to={"/news"}>
-                        <div className="font-medium text-2xl">TIX ID News</div>
-                      </Link>
-
-                      {!login.isLoggedIn && (
-                        <div className="w-full border bg-[--Royal-Blue] rounded-lg text-[--Royal-Blue] p-4 flex items-center justify-center text-2xl font-medium leading-4">
-                          <Link to={"/login"}>
-                            <p className="text-[--Pastel-Yellow] ">Login</p>
-                          </Link>
-                        </div>
-                      )}
-
-                      {/* <div className="flex justify-center items-center font-normal text-xs text-[--Shade-600]">
-                        Don't have an account yet?
-                      </div> */}
-
-                      {!login.isLoggedIn && (
-                        <div className="w-full border-2 border-[--Shade-600] rounded-lg text-[--Royal-Blue] p-3 flex items-center justify-center text-2xl font-medium leading-4">
-                          <Link to={"/signup"}>
-                            <p className="text-black hover:text-black">
-                              Sign Up
-                            </p>
-                          </Link>
-                        </div>
-                      )}
-
-                      {login.isLoggedIn && (
-                        <div className="w-full border-2 bg-[--Royal-Blue] rounded-lg text-[--Royal-Blue] p-3 flex items-center justify-center text-2xl font-medium leading-4">
-                          <Link to={"/account"}>
-                            <div className="text-[--Pastel-Yellow] ">
-                              {login.userData.name.charAt(0)}
-                              {/* Rushik */}
-                            </div>
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                <Menu className="h-6 w-6" />
               )}
             </button>
           </div>
         </div>
-      </div>
-    </div>
+      </nav>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <Link
+              to="/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+            >
+              Home
+            </Link>
+            <Link
+              to="/my-ticket"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+            >
+              My Tickets
+            </Link>
+            <Link
+              to="/news"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+            >
+              TIX ID News
+            </Link>
+            
+            {!isLoggedIn ? (
+              <div className="space-y-2 pt-4">
+                <Link
+                  to="/login"
+                  className="block w-full text-center bg-royal-blue text-sunshine-yellow px-4 py-2 rounded-md font-medium"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="block w-full text-center border border-gray-300 text-gray-900 px-4 py-2 rounded-md font-medium"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            ) : (
+              <Link
+                to="/account"
+                className="block w-full text-center bg-royal-blue text-sunshine-yellow px-4 py-2 rounded-md font-medium mt-4"
+              >
+                {userData.name}
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 
 export default Navbar;
-
