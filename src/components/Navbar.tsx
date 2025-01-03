@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { Menu, X, Bell, User } from "lucide-react";
-import logo from "../assets/logo/TIX ID.svg";
+import logo from "../assets/logo/NONTON-YUK.png";
 
 const Navbar = () => {
   const { userData, isLoggedIn } = useSelector((state: RootState) => state.login);
@@ -23,7 +23,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/my-ticket" className="nav-link">My Tickets</Link>
-            <Link to="/news" className="nav-link">TIX ID News</Link>
+            <Link to="/news" className="nav-link">NONTON YUK News</Link>
             <button className="p-2 rounded-full hover:bg-gray-100">
               <Bell className="h-5 w-5 text-gray-600" />
             </button>
@@ -90,7 +90,7 @@ const Navbar = () => {
               to="/news"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
             >
-              TIX ID News
+              NONTON YUK News
             </Link>
             
             {!isLoggedIn ? (

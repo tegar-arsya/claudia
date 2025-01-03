@@ -102,7 +102,7 @@ const NewsContent = () => {
                 <p>{post.title}</p>
               </div>
               <div>
-                <p>{formatDate(post.dates)} | TIX ID</p>
+                <p>{formatDate(post.dates)} | NONTON YUK</p>
               </div>
             </div>
           </div>
@@ -120,7 +120,7 @@ const NewsContent = () => {
               {data?.title}
             </div>
             <div className="font-normal text-md mob-s:text-lg mob-l:text-xl text-[--Shade-600]">
-              {formatDate(data?.dates || "")} | TIX ID
+              {formatDate(data?.dates || "")} | NONTON YUK
             </div>
           </div>
 

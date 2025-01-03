@@ -110,10 +110,10 @@ const NewsPost: React.FC = () => {
     <div className="mt-[5rem] sm:mt-[7rem]">
       <div className=" w-11/12 mx-auto flex flex-col gap-5 my-9">
         <div className="text-2xl mob-m:text-3xl sm:text-4xl font-bold text-[--Shade-900]">
-          TIX ID News
+          BERITA NONTON YUK
         </div>
         <p className="text-xs sm:text-sm font-normal">
-          Latest News about the world of cinema for you!
+        Berita Terkini seputar dunia perfilman untuk Anda!
         </p>
         {/* FORM */}
         <form>
@@ -224,7 +224,7 @@ const NewsPost: React.FC = () => {
                             {post.title}
                           </div>
                           <div>{post.description[0].substring(0, 100)}...</div>
-                          <div>{formatDate(post.dates)} | TIX ID</div>
+                          <div>{formatDate(post.dates)} | NONTON YUK</div>
                         </div>
                       </div>
                     </div>
@@ -239,7 +239,7 @@ const NewsPost: React.FC = () => {
                             {post.title}
                           </div>
                           <div>{post.description[0].substring(0, 100)}...</div>
-                          <div>{formatDate(post.dates)} | TIX ID</div>
+                          <div>{formatDate(post.dates)} | NONTON YUK</div>
                         </div>
                         <div className="flex justify-between">
                           <div>
@@ -282,7 +282,7 @@ const NewsPost: React.FC = () => {
                         <div className="text-justify text-sm mob-l:text-normal">
                           {post.description[0].substring(0, 50)}...
                         </div>
-                        <div>{formatDate(post.dates)} | TIX ID</div>
+                        <div>{formatDate(post.dates)} | NONTON YUK</div>
                       </div>
                     </div>
                   </div>

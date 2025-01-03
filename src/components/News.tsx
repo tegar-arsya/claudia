@@ -76,7 +76,7 @@ const News = () => {
                   <p>{news.title}</p>
                 </div>
                 <div>
-                  <p>{news.dates} | TIX ID</p>
+                  <p>{news.dates} | NONTON YUK</p>
                 </div>
               </div>
             </div>
