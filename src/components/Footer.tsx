@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import logo from "../assets/logo/NONTON-YUK.png";
 import { FaInstagram, FaFacebookSquare, FaTwitter } from "react-icons/fa";
 import GooglePlay from "../assets/logo/Google Play.svg";

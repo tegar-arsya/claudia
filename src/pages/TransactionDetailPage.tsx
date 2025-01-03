@@ -90,7 +90,7 @@ const TransactionDetailPage = () => {
     
     const detailsY = 120;
     const leftColumn = 15;
-    const rightColumn = width/2 + 10;
+    // const rightColumn = width/2 + 10;
     
     // Left column details
     doc.text(`Theater:`, leftColumn, detailsY);
