@@ -54,5 +54,32 @@ export const movies: MoviesData[] = [
         duration: '1 Jam 57 Menit',
         director: 'Donnie Yen',
         rated: '9.6',
+    },
+    {
+        id: 6,
+        name: 'MODAL NEKAT',
+        image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD4pz7Yi8cdM-5_ayMa2i-tDi2xxzl5FfAUQ&s`,
+        genre: 'Drama, Comedy',
+        duration: '1 Jam 47 Menit',
+        director: 'Imam Darto',
+        rated: '9.3',
+    },
+    {
+        id: 7,
+        name: 'SOROP',
+        image: `https://cdn0-production-images-kly.akamaized.net/XDtvJsycI-G_dIJjAVZtJuosbog=/800x1066/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/5050941/original/056520600_1734186634-Sorop_0.jpg`,
+        genre: 'Horror',
+        duration: '1 Jam 43 Menit',
+        director: 'Upi',
+        rated: '8.3',
+    },
+    {
+        id: 8,
+        name: 'SONIC THE HEDGEHOG 3',
+        image: `https://m.media-amazon.com/images/M/MV5BMjZjNjE5NDEtOWJjYS00Mjk2LWI1ZDYtOWI1ZWI3MzRjM2UzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg`,
+        genre: 'Action, Fantasy',
+        duration: '1 Jam 50 Menit',
+        director: 'Jeff Fowler',
+        rated: '9.5',
     }
 ];

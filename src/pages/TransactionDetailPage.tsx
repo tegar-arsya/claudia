@@ -45,12 +45,12 @@ const TransactionDetailPage = () => {
     const height = doc.internal.pageSize.getHeight();
     
     // Create gradient background
-    doc.setFillColor(245, 245, 245);
+    doc.setFillColor(255, 255, 255); // Warna putih
     doc.rect(0, 0, width, height, "F");
     
     // Add Logo
     try {
-      const logoPath = "E:\\TIX-ID\\src\\assets\\logo\\NONTON-YUK.png";
+      const logoPath = "/cek.png";
       doc.addImage(logoPath, "PNG", width/2 - 20, 10, 40, 40, undefined, 'FAST');
     } catch (error) {
       console.error("Error loading logo:", error);

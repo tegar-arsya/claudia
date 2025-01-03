@@ -151,7 +151,7 @@ const NewsContent = () => {
               {/* <iframe src={data?.source} width={500} height={300} /> */}
               <iframe
                 className="w-full h-[25rem] sm:h-[30rem] md:h-[35rem] rounded-xl"
-                src="https://www.youtube.com/embed/JfVOs4VSpmA?si=XTOZIIQpnYZMHzMJ"
+                src={data?.source ? data.source : ""}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
